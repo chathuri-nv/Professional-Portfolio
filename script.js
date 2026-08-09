@@ -91,5 +91,27 @@ contactForm.addEventListener("submit", function (event) {
 });
 
 const currentYear = document.getElementById("current-year");
+if (currentYear) {
+    currentYear.textContent = new Date().getFullYear();
+}
 
-currentYear.textContent = new Date().getFullYear();
+// Animate Skill Bars on Scroll Up & Down
+const skillsSection = document.getElementById("skills");
+const skillsContainer = document.querySelector(".skills-container");
+
+if (skillsSection && skillsContainer) {
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    skillsContainer.classList.add("show");
+                } else {
+                    skillsContainer.classList.remove("show");
+                }
+            });
+        },
+        { threshold: 0.2 }
+    );
+
+    observer.observe(skillsSection);
+}

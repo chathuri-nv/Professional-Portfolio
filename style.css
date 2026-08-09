@@ -391,7 +391,7 @@ a.btn:hover {
 }
 
 .stat-box {
-    background: #202428;
+    background: var(--bg-color);
     border: 1px solid rgba(18, 247, 255, 0.2);
     border-radius: 12px;
     padding: 15px 20px;
@@ -417,68 +417,98 @@ a.btn:hover {
     margin: 0;
 }
 
-.timeline {
-    position: relative;
-    max-width: 800px;
-    margin: auto;
+
+/*Education*/
+#education {
+    background-color: var(--bg-color);
+    padding-bottom: 120px;
 }
 
-.timeline::before {
-    content: "";
-    position: absolute;
-    left: 12px;
-    top: 0;
-    width: 2px;
-    height: 100%;
-    background: #d9d7ff;
+.education-title {
+    text-align: center;
+    margin-bottom: 30px; /* Reduced gap from section title */
 }
 
-.timeline-item {
-    position: relative;
-    padding-left: 55px;
-    margin-bottom: 40px;
-}
-
-.timeline-dot {
-    position: absolute;
-    left: 3px;
-    top: 5px;
-
-    width: 20px;
-    height: 20px;
-
-    border-radius: 50%;
-    background: #6c63ff;
-    border: 4px solid #f8f9ff;
-}
-
-.timeline-content {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
-}
-
-.timeline-year {
-    color: #6c63ff;
-    font-size: 0.9rem;
+.education-title p {
+    color: var(--hover-color);
     font-weight: 600;
 }
 
-.timeline-content h3 {
-    margin: 5px 0;
+.education-title h2 {
+    font-size: 2.4rem;
+    color: var(--text-color);
 }
 
-.timeline-content h4 {
-    font-weight: 500;
-    color: #6b7280;
+/* Timeline Layout */
+.education-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    padding-left: 30px;
+    border-left: 2px solid var(--hover-color); /* Cyan vertical line */
 }
 
-.timeline-content p {
-    margin-top: 10px;
-    color: #6b7280;
+.education-box {
+    position: relative;
+    margin-bottom: 25px; 
 }
 
+.education-box::before {
+    content: '';
+    position: absolute;
+    left: -37px;
+    top: 22px;
+    width: 12px;
+    height: 12px;
+    background: var(--hover-color);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--hover-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.education-box:hover::before {
+    transform: scale(1.4);
+    box-shadow: 0 0 18px var(--hover-color), 0 0 30px var(--hover-color);
+}
+
+.education-content {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(18, 247, 255, 0.15);
+    border-radius: 12px;
+    padding: 20px 25px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.education-content:hover {
+    transform: translateY(-5px);
+    border-color: var(--hover-color);
+    box-shadow: 0 0 15px rgba(18, 247, 255, 0.2);
+}
+
+.education-content .tag {
+    color: var(--hover-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.education-content h3 {
+    font-size: 1.4rem;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.education-content .sub-title {
+    color: #9ca3af;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+
+.education-content p {
+    color: #d1d5db;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+/*Skill Part*/
 .section1 {
     padding: 100px 25px;
     display: flex;
@@ -486,41 +516,68 @@ a.btn:hover {
     justify-content: center;
     align-items: center;
     width: 100%;
-    background: var(--bg-color);
+    background: var(--secon-bg-color);
+}
+
+.section-title {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.section-title p {
+    text-align: center;
+    color: #a0a0a0;
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.section-title h2 {
+    font-size: var(--h2-font);
+    color: var(--text-color);
 }
 
 .skills-container {
     width: 100%;
-    max-width: 1700px;
-    height:100%;
-    max-height: 3000px;
-    margin-bottom: 80px;
+    max-width: 1200px;
+    margin: 0 auto 50px auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
 }
 
-.skill-left,.skill-right {
-    background: transparent;
+.skill-left, .skill-right {
+    background: var(--secon-bg-color);
     padding: 35px 30px;
+    border-radius: 18px;
+    border: 1px solid rgba(18, 247, 255, 0.2);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
+.skill-left:hover, .skill-right:hover {
+    transform: translateY(-8px);
+    border-color: var(--hover-color);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6),
+                0 0 25px rgba(18, 247, 255, 0.35);
+}
 
 .skill-left h3, .skill-right h3 {
     font-size: 1.6rem;
     color: var(--hover-color);
     margin-bottom: 25px;
     text-align: center;
-    border-bottom: none;
+    border-bottom: 2px solid rgba(18, 247, 255, 0.15);
     padding-bottom: 12px;
 }
 
 .skill-bar {
-    margin-bottom: 2.3rem;
+    margin-bottom: 22px;
 }
 
-.skill-bar.h3 {
-    margin-bottom: 2rem;
+.skill-bar:last-child {
+    margin-bottom: 0;
 }
 
 .skill-bar .info {
@@ -539,28 +596,42 @@ a.btn:hover {
 .skill-bar .bar {
     width: 100%;
     height: 12px;
-    background: #1a1e24;
+    background: #16191d;
     border-radius: 10px;
     position: relative;
     overflow: hidden;
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.6);
-    border: none;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(18, 247, 255, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+.skill-bar:hover .bar {
+    border-color: var(--hover-color);
 }
 
 .skill-bar .bar span {
-    width: 50%;
     height: 100%;
     position: absolute;
-    left:0;
-    background: var(--hover-color);
+    left: 0;
+    background: linear-gradient(90deg, #12f7ff, #00b4d8);
     border-radius: 25px;
-    box-shadow: var(--neon-box-shadow);
+    box-shadow: 0 0 10px var(--hover-color), 0 0 20px rgba(18, 247, 255, 0.5);
+    transition: width 1.2s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
+}
+
+.skill-bar:hover .bar span {
+    box-shadow: 0 0 15px var(--hover-color), 0 0 30px rgba(18, 247, 255, 0.8);
 }
 
 .skill-bar .bar span.html { width: 87%; }
 .skill-bar .bar span.css { width: 80%; }
 .skill-bar .bar span.javascript { width: 62%; }
 .skill-bar .bar span.figma { width: 93%; }
+
+.skill-bar .bar span.teamwork { width: 90%; }
+.skill-bar .bar span.communication { width: 85%; }
+.skill-bar .bar span.problem-solving { width: 88%; }
+.skill-bar .bar span.project-mgmt { width: 75%; }
 
 
 .projects-container {
